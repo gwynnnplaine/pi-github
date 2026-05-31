@@ -1,0 +1,43 @@
+<svg width="1200" height="400" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3fb950"/>
+      <stop offset="1" stop-color="#2ea043"/>
+    </linearGradient>
+  </defs>
+
+  <!-- panel -->
+  <rect x="0" y="0" width="1200" height="400" rx="16" fill="url(#bg)"/>
+  <rect x="1" y="1" width="1198" height="398" rx="15" fill="none" stroke="#30363d" stroke-width="2"/>
+
+  <!-- left: commit-graph motif -->
+  <g stroke="#30363d" stroke-width="4" fill="none">
+    <path d="M150 110 L150 290"/>
+    <path d="M150 200 C150 200 210 200 270 150"/>
+    <path d="M150 240 C150 240 210 240 270 290"/>
+  </g>
+  <g>
+    <circle cx="150" cy="110" r="16" fill="#0d1117" stroke="url(#accent)" stroke-width="5"/>
+    <circle cx="150" cy="200" r="20" fill="url(#accent)"/>
+    <circle cx="150" cy="290" r="16" fill="#0d1117" stroke="#58a6ff" stroke-width="5"/>
+    <circle cx="270" cy="150" r="14" fill="#0d1117" stroke="#58a6ff" stroke-width="5"/>
+    <circle cx="270" cy="290" r="14" fill="#0d1117" stroke="#58a6ff" stroke-width="5"/>
+  </g>
+
+  <!-- title -->
+  <text x="360" y="150" font-family="ui-monospace, Menlo, monospace" font-size="52" font-weight="700" fill="#e6edf3">@gwynnnplaine/pi-github</text>
+
+  <!-- tagline -->
+  <text x="362" y="205" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="30" fill="#8b949e">GitHub issues, PRs, diffs &amp; code &#8212; inside Pi.</text>
+
+  <!-- extension pill -->
+  <rect x="362" y="242" width="134" height="36" rx="7" fill="none" stroke="url(#accent)" stroke-width="2"/>
+  <text x="429" y="266" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="18" letter-spacing="1" fill="#3fb950">EXTENSION</text>
+
+  <!-- install line -->
+  <text x="362" y="335" xml:space="preserve" font-family="ui-monospace, Menlo, monospace" font-size="24" fill="#6e7681"><tspan fill="#3fb950">$ </tspan>pi install npm:@gwynnnplaine/pi-github</text>
+</svg>

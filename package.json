@@ -1,7 +1,7 @@
 {
   "name": "@gwynnnplaine/pi-github",
-  "version": "0.3.1",
-  "description": "GitHub tool extension for Pi: format threads, list issues/PRs, and inspect PR diffs/images.",
+  "version": "0.3.2",
+  "description": "Read GitHub issues, PRs, diffs, checks & code from inside Pi — via the gh CLI. Chronological markdown, image extraction, PR review workflows.",
   "author": "Maria <maria@kuuro.net>",
   "license": "MIT",
   "repository": {
@@ -32,7 +32,8 @@
   "pi": {
     "extensions": [
       "./index.ts"
-    ]
+    ],
+    "image": "https://raw.githubusercontent.com/gwynnnplaine/pi-github/main/assets/banner.png"
   },
   "peerDependencies": {
     "@earendil-works/pi-agent-core": "*",
