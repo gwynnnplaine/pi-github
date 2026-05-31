@@ -1,17 +1,17 @@
 {
-  "name": "pi-github",
-  "version": "0.2.0",
+  "name": "@gwynnnplaine/pi-github",
+  "version": "0.3.0",
   "description": "GitHub tool extension for Pi: format threads, list issues/PRs, and inspect PR diffs/images.",
   "author": "Maria <maria@kuuro.net>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maria-rcks/pi-github.git"
+    "url": "git+https://github.com/gwynnnplaine/pi-github.git"
   },
   "bugs": {
-    "url": "https://github.com/maria-rcks/pi-github/issues"
+    "url": "https://github.com/gwynnnplaine/pi-github/issues"
   },
-  "homepage": "https://github.com/maria-rcks/pi-github#readme",
+  "homepage": "https://github.com/gwynnnplaine/pi-github#readme",
   "keywords": [
     "pi-package",
     "pi",
@@ -26,16 +26,19 @@
     "README.md",
     "LICENSE"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "pi": {
     "extensions": [
       "./index.ts"
     ]
   },
   "peerDependencies": {
-    "@mariozechner/pi-agent-core": "*",
-    "@mariozechner/pi-ai": "*",
-    "@mariozechner/pi-coding-agent": "*",
-    "@mariozechner/pi-tui": "*",
-    "@sinclair/typebox": "*"
+    "@earendil-works/pi-agent-core": "^0.78.0",
+    "@earendil-works/pi-ai": "^0.78.0",
+    "@earendil-works/pi-coding-agent": "^0.78.0",
+    "@earendil-works/pi-tui": "^0.78.0",
+    "typebox": "^1.1.38"
   }
 }

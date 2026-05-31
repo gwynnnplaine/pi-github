@@ -4,19 +4,21 @@
 
 [![License](https://img.shields.io/badge/license-MIT-111111?style=flat-square)](./LICENSE)
 [![Pi extension](https://img.shields.io/badge/pi-extension-111111?style=flat-square)](https://pi.dev)
-[![GitHub](https://img.shields.io/badge/github-maria--rcks%2Fpi--github-111111?style=flat-square&logo=github)](https://github.com/maria-rcks/pi-github)
+[![GitHub](https://img.shields.io/badge/github-gwynnnplaine%2Fpi--github-111111?style=flat-square&logo=github)](https://github.com/gwynnnplaine/pi-github)
 
 GitHub extension package for [Pi](https://pi.dev) with thread formatting, issue/PR listing, image extraction, and PR diff inspection.
 </div>
+
+> Fork of the archived [maria-rcks/pi-github](https://github.com/maria-rcks/pi-github), continued under [@gwynnnplaine](https://github.com/gwynnnplaine).
 
 ## Install
 
 Use whichever source you prefer:
 
 ```bash
-pi install npm:pi-github
+pi install npm:@gwynnnplaine/pi-github
 # or
-pi install git:github.com/maria-rcks/pi-github
+pi install git:github.com/gwynnnplaine/pi-github
 # or
 pi install /absolute/path/to/pi-github
 ```
@@ -69,5 +71,5 @@ Core params:
 
 ## Links
 
-- Repository: https://github.com/maria-rcks/pi-github
-- Issues: https://github.com/maria-rcks/pi-github/issues
+- Repository: https://github.com/gwynnnplaine/pi-github
+- Issues: https://github.com/gwynnnplaine/pi-github/issues

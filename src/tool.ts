@@ -1,4 +1,4 @@
-import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
+import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { basename, join } from "path";
 import { mkdir, writeFile } from "fs/promises";
 import { GithubParams } from "./schema";
@@ -92,7 +92,19 @@ export default function githubExtension(pi: ExtensionAPI) {
 		description:
 			"Formats GitHub threads as chronological markdown. Supports list_issues/list_prs, issue/PR/discussion auto-detection, image IDs + download, and PR file-change IDs + per-file diff retrieval.",
 		parameters: GithubParams,
-		async execute(_toolCallId, rawParams) {
+		prepareArguments(args) {
+			const next: Record<string, unknown> = { ...args };
+			if (next.id === undefined && next.number !== undefined) next.id = next.number;
+			if (next.changeId === undefined) {
+				if (next.patchId !== undefined) next.changeId = next.patchId;
+				else if (next.codeId !== undefined) next.changeId = next.codeId;
+			}
+			delete next.number;
+			delete next.patchId;
+			delete next.codeId;
+			return next;
+		},
+		async execute(_toolCallId, rawParams, _signal, _onUpdate, _ctx) {
 			const action: Action = (rawParams.action as Action | undefined) ?? "format";
 			const page = Number(rawParams.page ?? 1);
 			const perPage = Number(rawParams.perPage ?? 20);
@@ -210,7 +222,7 @@ export default function githubExtension(pi: ExtensionAPI) {
 					return { content: [{ type: "text", text }] };
 				}
 
-				const id = Number(rawParams.id ?? rawParams.number);
+				const id = Number(rawParams.id);
 				if (!Number.isInteger(id) || id < 1) {
 					return { content: [{ type: "text", text: "GitHub tool error: id must be an integer >= 1" }] };
 				}
@@ -340,7 +352,7 @@ export default function githubExtension(pi: ExtensionAPI) {
 					if (entity !== "pr") {
 						return { content: [{ type: "text", text: "Error: action=get_change only works for pull requests" }] };
 					}
-					const requestedChangeId = Number(rawParams.changeId ?? rawParams.patchId ?? rawParams.codeId);
+					const requestedChangeId = Number(rawParams.changeId);
 					if (!Number.isInteger(requestedChangeId) || requestedChangeId < 1) {
 						return {
 							content: [{ type: "text", text: "Error: changeId (or patchId/codeId) is required for action=get_change" }],

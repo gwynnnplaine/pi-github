@@ -1,4 +1,4 @@
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 export const GithubParams = Type.Object({
 	action: Type.Optional(
@@ -33,13 +33,10 @@ export const GithubParams = Type.Object({
 	entity: Type.Optional(Type.Union([Type.Literal("issue"), Type.Literal("pr"), Type.Literal("discussion")])),
 	owner: Type.Optional(Type.String({ description: "GitHub repository owner/org (optional; auto-detected from git origin)" })),
 	repo: Type.Optional(Type.String({ description: "GitHub repository name (optional; auto-detected from git origin)" })),
-	number: Type.Optional(Type.Integer({ minimum: 1, description: "Deprecated alias for id" })),
 	page: Type.Optional(Type.Integer({ minimum: 1, description: "Pagination page (default 1)" })),
 	perPage: Type.Optional(Type.Integer({ minimum: 1, maximum: 100, description: "Items per page (default 20)" })),
 	imageId: Type.Optional(Type.Integer({ minimum: 1, description: "Image ID (for download_image)" })),
 	changeId: Type.Optional(Type.Integer({ minimum: 1, description: "Change ID (for get_change)" })),
-	patchId: Type.Optional(Type.Integer({ minimum: 1, description: "Alias for changeId" })),
-	codeId: Type.Optional(Type.Integer({ minimum: 1, description: "Alias for changeId" })),
 	tmpDir: Type.Optional(Type.String({ description: "Download directory for images (default /tmp)" })),
 	path: Type.Optional(Type.String({ description: "File path filter or file path for file-focused actions" })),
 	ref: Type.Optional(Type.String({ description: "Git ref (branch/tag/SHA) for ref-aware actions" })),
