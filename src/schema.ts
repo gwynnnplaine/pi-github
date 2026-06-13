@@ -1,28 +1,29 @@
 import { Type } from "typebox";
+import { StringEnum } from "@earendil-works/pi-ai";
 
 export const GithubParams = Type.Object({
 	action: Type.Optional(
-		Type.Union(
+		StringEnum(
 			[
-				Type.Literal("format"),
-				Type.Literal("list_images"),
-				Type.Literal("download_image"),
-				Type.Literal("list_changes"),
-				Type.Literal("get_change"),
-				Type.Literal("list_issues"),
-				Type.Literal("list_prs"),
-				Type.Literal("pr_overview"),
-				Type.Literal("list_pr_commits"),
-				Type.Literal("get_pr_commit"),
-				Type.Literal("list_review_comments"),
-				Type.Literal("list_pr_checks"),
-				Type.Literal("list_participants"),
-				Type.Literal("read_file"),
-				Type.Literal("list_directory"),
-				Type.Literal("search_code"),
-				Type.Literal("glob_files"),
-				Type.Literal("search_commits"),
-			],
+				"format",
+				"list_images",
+				"download_image",
+				"list_changes",
+				"get_change",
+				"list_issues",
+				"list_prs",
+				"pr_overview",
+				"list_pr_commits",
+				"get_pr_commit",
+				"list_review_comments",
+				"list_pr_checks",
+				"list_participants",
+				"read_file",
+				"list_directory",
+				"search_code",
+				"glob_files",
+				"search_commits",
+			] as const,
 			{
 				description:
 					"Action: format thread markdown; list_issues/list_prs; list_images/download_image; or list_changes/get_change for PR file diffs",
@@ -30,7 +31,7 @@ export const GithubParams = Type.Object({
 		),
 	),
 	id: Type.Optional(Type.Integer({ minimum: 1, description: "GitHub thread ID (issue/PR/discussion number)" })),
-	entity: Type.Optional(Type.Union([Type.Literal("issue"), Type.Literal("pr"), Type.Literal("discussion")])),
+	entity: Type.Optional(StringEnum(["issue", "pr", "discussion"] as const)),
 	owner: Type.Optional(Type.String({ description: "GitHub repository owner/org (optional; auto-detected from git origin)" })),
 	repo: Type.Optional(Type.String({ description: "GitHub repository name (optional; auto-detected from git origin)" })),
 	page: Type.Optional(Type.Integer({ minimum: 1, description: "Pagination page (default 1)" })),
